@@ -12,7 +12,7 @@ public class Person
     public Gender Gender { get; set; }
     public string PersonalNumber { get; set; } = null!;
     public DateTime Birthday { get; set; }
-    public string picture { get; set; } = null!;
+    public string? picture { get; set; }
     public DateTime CreateDate { get; set; }
     public bool IsDelete { get; set; }
     public City City { get; set; } = null!;

@@ -39,10 +39,21 @@ public class PersonService : IPersonService
    
     public Person GetPerson(int personId) =>  _unitOfWork.PersonRepository.Get(personId);
 
+    public int GetPresonRelationsCount(int personId) =>  _unitOfWork.RelativePersonRepository.GetAllRelativeCount(personId);
+
+    public void UploadOrUpdatePicture(int personId, string picture)
+    {
+        Person person = _unitOfWork.PersonRepository.Get(personId);
+        if (person.picture == null || person.picture != picture)
+        {
+            person.picture = picture;
+            _unitOfWork.PersonRepository.Update(person);
+            SaveChanges();
+        }
+    }
+
     public void SaveChanges()
     {
         _unitOfWork.SaveChanges();
     }
-
-
 }

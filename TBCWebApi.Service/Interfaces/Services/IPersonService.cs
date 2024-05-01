@@ -9,4 +9,7 @@ public interface IPersonService
     void DeletePerson(int personId);
     Person GetPerson(int personId);
     IEnumerable<RelativePerson> GetPresonRelations(int personId);
+    int GetPresonRelationsCount(int personId);
+    void UploadOrUpdatePicture(int personId, string picture);
+    
 }
